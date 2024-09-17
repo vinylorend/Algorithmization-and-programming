@@ -3,50 +3,43 @@
 
 using namespace std;
 
-int main() {
-    double initial_price, discount_percent;
-    int payment_count, credit_type;
+int main () {
+    double x, f_x, g_x;
 
-    cout << "Enter the initial price: ";
-    cin >> initial_price;
-    if (initial_price <= 0) {
-        cout << "Error: Initial price must be positive." << endl;
-        return 1;
-    }
+    cout << "Enter the x"  << endl;
+    cin >> x;
 
-    cout << "Enter the discount percentage: ";
-    cin >> discount_percent;
-    if (discount_percent < 0 || discount_percent > 100) {
-        cout << "Error: Discount percentage must be between 0 and 100." << endl;
-        return 1;
-    }
+    // g_x
+    if (x > -4 && x < - 1) {
+        g_x = (abs(x - 6)) / (abs(x + 3 ) - 3);
 
-    cout << "Enter the number of payments: ";
-    cin >> payment_count;
-    if (payment_count <= 0) {
-        cout << "Error: Number of payments must be positive." << endl;
-        return 1;
-    }
+    } else if (x == -1.5) {
+        g_x = sqrt(5 - x) - 2;
 
-    cout << "Select the credit type (1 - Platinum, 2 - Business): ";
-    cin >> credit_type;
-    if (credit_type != 1 && credit_type != 2) {
-        cout << "Error: Invalid credit type." << endl;
-        return 1;
-    }
-
-    double price_after_discount = initial_price * (1 - discount_percent / 100);
-
-    double final_price;
-    if (credit_type == 1) {
-        final_price = price_after_discount * pow(1 + 0.05, payment_count);
+    } else if (x >= 5) {
+        g_x = log(x + 10) - 2;
+        
     } else {
-        final_price = price_after_discount * pow(1 + 0.02, payment_count);
+        g_x = 0.0; // value error
+        cout << "it is impossible to calculate: values outside the domain" << endl;
+        return 1;
     }
 
-    cout << "Initial price: $" << initial_price << endl;
-    cout << "Price after discount: $" << price_after_discount << endl;
-    cout << "Final price with credit: $" << final_price << endl;
+    // f_x
+    if (g_x < -2) {
+        f_x = abs(g_x / (1 - x));
+
+    } else if (g_x >= 5) {
+        f_x = pow(g_x + 2, 2);
+
+    } else {
+        f_x = 0.0; // value error
+        cout << "it is impossible to calculate: values outside the domain" << endl;
+        return 1;
+    }
+
+    cout << "the resulting value (g(x)): \t" << g_x << endl;
+    cout << "the resulting value (f(x)): \t" << f_x << endl;
 
     return 0;
 }
