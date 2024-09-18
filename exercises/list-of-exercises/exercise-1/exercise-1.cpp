@@ -4,11 +4,14 @@
 using namespace std;
 
 int main() {
-    double k, omega, A, phi_0, T, x_T;
-    A = 1.0;
+    double k, omega, A, phi_0, T, x_T, A;
 
-    cout << "Enter the k (how many times is x smaller than A?): \t";
+    cout << "Enter the k : \t";
     cin >> k;
+
+    cout << "Enter the A : \t";
+    cin >> A;
+
 
     if (k <= 1) {
         cout << "ERROR: k > 1" << endl;
